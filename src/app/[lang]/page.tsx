@@ -1,3 +1,4 @@
+// src/app/[lang]/page.tsx
 export default function Page() {
-  return null; // أو <></> لو حابب
+  return <></>; // أو محتوى مؤقت
 }
