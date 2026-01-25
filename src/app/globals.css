@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+@import "tailwindcss";
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+@theme {
+  --font-fugaz: "Fugaz One", cursive;
+  --color-bg-aurora-start: #f0f7ff;
+  --color-bg-aurora-end: #03045e;
+  --color-text-primary: #000000;
+  --bg-accent: linear-gradient(to right, #48cae4, #00b4d8);
+  --color-accent-gradient: linear-gradient(to right, #03045e, #023e8a);
+}
+
+.dark {
+  --color-bg-aurora-start: #0a0a0a;
+  --color-bg-aurora-end: #023e8a;
+  --color-text-primary: #f8fafc;
+  --color-accent-gradient: linear-gradient(to right, #48cae4, #00b4d8);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-aurora-start);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@utility liquid-glass {
+  @apply relative overflow-hidden antialiased rounded-lg;
+  @apply bg-white/5 backdrop-blur-sm border border-white/40;
+  @apply shadow-[inset_0_1px_0px_rgba(255,255,255,0.7),0_0_9px_rgba(0,0,0,0.1),0_3px_8px_rgba(0,0,0,0.1)];
+
+  &::before {
+    @apply absolute inset-0 rounded-[inherit] pointer-events-none;
+    @apply bg-gradient-to-br from-white/50 via-transparent to-transparent opacity-60 content-[''];
+  }
+
+  &::after {
+    @apply absolute inset-0 rounded-[inherit] pointer-events-none;
+    @apply bg-gradient-to-tl from-white/20 via-transparent to-transparent opacity-40 content-[''];
+  }
+}
+
+@utility liquid-glass-hover {
+  @apply transition-all duration-300;
+  @apply hover:bg-white/20 hover:scale-[1.02] hover:shadow-lg;
+  @apply active:scale-[0.98];
+}
+
+@utility blue-glass {
+  @apply relative overflow-hidden antialiased rounded-lg transition-all duration-500;
+  @apply bg-blue-950/40 backdrop-blur-sm border border-blue-500/50;
+  @apply shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_0_15px_rgba(0,180,216,0.2)];
+
+  &::before {
+    @apply absolute inset-0 rounded-[inherit] pointer-events-none;
+    @apply bg-gradient-to-br from-blue-400/30 via-blue-600/5 to-transparent content-[''];
+  }
+
+  &::after {
+    @apply absolute inset-0 rounded-[inherit] pointer-events-none;
+    @apply shadow-[inset_0_1px_1px_rgba(144,224,239,0.5)] content-[''];
+  }
+}
+
+@utility blue-glass-hover {
+  @apply hover:bg-blue-900/60 hover:border-cyan-400/80;
+  @apply hover:shadow-[0_0_40px_rgba(3,4,94,0.6),inset_0_0_20px_rgba(0,180,216,0.4)];
+  @apply hover:scale-[1.03] active:scale-[0.98];
+}
+
+@utility blue-glass-pill {
+  will-change: transform, left, width;
+  @apply relative overflow-hidden antialiased rounded-full transition-all;
+  @apply bg-blue-900/60 backdrop-blur-md border border-cyan-400/80;
+  @apply shadow-[0_0_40px_rgba(3,4,94,0.6),inset_0_0_20px_rgba(0,180,216,0.4)];
+  @apply border-t-white/20;
+
+  &::before {
+    @apply absolute inset-0 rounded-full pointer-events-none;
+    @apply bg-gradient-to-tr from-blue-800/20 via-transparent to-white/10 content-[''];
+  }
+}
+@theme {
+  --color-cyan-glow: rgba(34, 211, 238, 0.4);
+}
+
+.orbit-container::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.05) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+}
