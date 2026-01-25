@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 interface CircleAnimationProps {
   icon: React.ReactNode;
-  tittle: "string";
+  tittle: string;
 }
 const CircleAnimation = ({ icon, tittle }: CircleAnimationProps) => {
   return (
