@@ -35,7 +35,10 @@ const About = () => {
             />
           </div>
         </div>
-        <div className="flex justify-center items-center h-full min-h-[500px] lg:-mt-13">
+        <div
+          className="flex justify-center items-center h-full 
+        min-h-[500px] lg:-mt-13"
+        >
           <div className="scale-90 lg:scale-100 transform transition-transform">
             <LevitatingAnimations />
           </div>

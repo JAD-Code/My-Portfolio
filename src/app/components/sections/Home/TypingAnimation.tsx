@@ -40,11 +40,18 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({ words }) => {
   }, [subIndex, index, reverse, words]);
 
   return (
-    <div className="flex items-center text-lg font-bold uppercase tracking-wider">
+    <div
+      className="flex items-center text-sm sm:text-lg font-bold uppercase 
+    tracking-wider"
+    >
       <p>
         <span className="mr-2 text-black dark:text-white">I'M A</span>
 
-        <span className="relative inline-block text-black dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r from-[#02668a] via-[#63b3f1] to-[#55d7f7]">
+        <span
+          className="relative inline-block text-black 
+        dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r
+         from-[#02668a] via-[#63b3f1] to-[#55d7f7]"
+        >
           {words[index].substring(0, subIndex)}
 
           <motion.span
@@ -54,7 +61,8 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({ words }) => {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="inline-block w-[3px] h-5 bg-[#55d7f7] ml-1 align-middle shadow-[0_0_8px_#55d7f7]"
+            className="inline-block w-[3px] h-5 bg-[#55d7f7] ml-1 
+            align-middle shadow-[0_0_8px_#55d7f7]"
           />
         </span>
       </p>

@@ -16,9 +16,9 @@ const CircleAnimation = ({ icon, tittle }: CircleAnimationProps) => {
           rotate: 360,
           opacity: [0, 1, 1, 0],
         }}
-        viewport={{ once: false, amount: 0.8 }}
+        viewport={{ once: false, amount: 0.9 }}
         transition={{
-          duration: 0.8,
+          duration: 1,
           times: [0, 0.1, 0.9, 1],
           ease: "easeOut",
         }}
