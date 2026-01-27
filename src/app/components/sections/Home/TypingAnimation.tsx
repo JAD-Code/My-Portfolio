@@ -41,11 +41,11 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({ words }) => {
 
   return (
     <div
-      className="flex items-center text-sm sm:text-lg font-bold uppercase 
-    tracking-wider"
+      className="flex items-center text-[15px] sm:text-xl font-bold uppercase 
+    "
     >
       <p>
-        <span className="mr-2 text-black dark:text-white">I'M A</span>
+        <span className="ms-0 me-1 text-black dark:text-white">I'M A</span>
 
         <span
           className="relative inline-block text-black 
@@ -61,7 +61,7 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({ words }) => {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="inline-block w-[3px] h-5 bg-[#55d7f7] ml-1 
+            className="inline-block w-[2px] h-5 bg-[#55d7f7]
             align-middle shadow-[0_0_8px_#55d7f7]"
           />
         </span>

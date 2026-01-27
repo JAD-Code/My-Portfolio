@@ -250,6 +250,27 @@ const CirclesContainer = () => {
             </svg>
           }
         />
+        <CircleAnimation
+          tittle="framer motion"
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-12 h-12"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 12l-8 -8v16l16 -16v16l-4 -4" />
+              <path d="M20 12l-8 8l-4 -4" />
+            </svg>
+          }
+        />
       </SkillGroup>
 
       {/*Tools & Software */}
@@ -257,10 +278,14 @@ const CirclesContainer = () => {
         <CircleAnimation
           tittle="Git"
           icon={
-            <svg viewBox="0 0 100 100" className="w-12 h-12">
+            <svg
+              preserveAspectRatio="xMidYMid"
+              viewBox="0 0 256 256"
+              className="w-12 h-12"
+            >
               <path
-                fill="#F05032"
-                d="M91.8 45.4L54.6 8.2c-2.4-2.4-6.4-2.4-8.8 0L37.1 16.9l11.6 11.6c2.7-0.9 5.8-0.3 8 1.9 2.2 2.2 2.8 5.3 1.9 8l11.6 11.6c2.7-0.9 5.8-0.3 8 1.9 3.4 3.4 3.4 9 0 12.4s-9 3.4-12.4 0c-2.2-2.2-2.8-5.3-1.9-8L52.3 44.7v24.6c0.9 0.4 1.7 1 2.3 1.7 3.4 3.4 3.4 9 0 12.4s-9 3.4-12.4 0c-2.2-2.2-2.8-5.3-1.9-8V43.9c-0.9-0.4-1.7-1-2.3-1.7-2.2-2.2-2.8-5.3-1.9-8L24.5 22.6 8.2 38.9c-2.4 2.4-2.4 6.4 0 8.8l37.2 37.2c2.4 2.4 6.4 2.4 8.8 0l37.6-37.6c2.4-2.5 2.4-6.5 0-8.9z"
+                d="M251.17 116.6 139.4 4.82a16.49 16.49 0 0 0-23.31 0l-23.21 23.2 29.44 29.45a19.57 19.57 0 0 1 24.8 24.96l28.37 28.38a19.61 19.61 0 1 1-11.75 11.06L137.28 95.4v69.64a19.62 19.62 0 1 1-16.13-.57V94.2a19.61 19.61 0 0 1-10.65-25.73L81.46 39.44 4.83 116.08a16.49 16.49 0 0 0 0 23.32L116.6 251.17a16.49 16.49 0 0 0 23.32 0l111.25-111.25a16.5 16.5 0 0 0 0-23.33"
+                fill="#DE4C36"
               />
             </svg>
           }
@@ -296,18 +321,6 @@ const CirclesContainer = () => {
                   <rect width="53.3333" height="80" fill="white" />
                 </clipPath>
               </defs>
-            </svg>
-          }
-        />
-        <CircleAnimation
-          tittle="NPM"
-          icon={
-            <svg viewBox="0 0 2500 2500" className="w-12 h-12">
-              <path fill="#c00" d="M0 0h2500v2500H0z" />
-              <path
-                fill="#fff"
-                d="M1241.5 268.5h-973v1962.9h972.9V763.5h495v1467.9h495V268.5z"
-              />
             </svg>
           }
         />

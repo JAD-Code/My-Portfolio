@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 @import "tailwindcss";
 
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-  position: relative;
+html {
+  scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden;
+}
+
 @theme {
-  --font-fugaz: "Fugaz One", cursive;
+  --font-fugaz: "Fugaz One", Impact, "Arial Black", sans-serif;
   --color-bg-aurora-start: #f0f7ff;
   --color-bg-aurora-end: #03045e;
   --color-text-primary: #000000;

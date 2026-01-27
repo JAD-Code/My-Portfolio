@@ -6,7 +6,7 @@ import { Cpu, Terminal } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="relative w-full py-20 px-4 overflow-hidden">
+    <section id="#about" className="relative w-full py-20 px-4 overflow-hidden">
       <div className="flex justify-center text-center mb-16 relative">
         <Tittle text="About" highlightedText="Me" bgText="ABOUT" />
       </div>

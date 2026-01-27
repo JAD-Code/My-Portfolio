@@ -1,4 +1,3 @@
-// layout.tsx
 import Navbar from "@/src/app/components/layout/navbar/Navbar";
 import Aurora from "@/src/app/components/ui/Background/Aurora";
 import "./globals.css";

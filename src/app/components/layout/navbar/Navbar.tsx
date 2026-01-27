@@ -5,7 +5,7 @@ import Pill from "./Pill";
 import Tab from "./Tab";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
-import HumButton from "./HumButton";
+import HamMenu from "./HamMenu";
 
 const Navbar = () => {
   const [position, setPosition] = useState<Target>({
@@ -14,13 +14,12 @@ const Navbar = () => {
     left: 0,
   });
   return (
-    <div className=" fixed top-0 left-0 w-full z-100">
-      <div className="flex md:hidden justify-between m-2">
+    <div className="fixed top-0 left-0 w-full z-50 pointer-events-auto">
+      <div className="flex lg:hidden justify-between m-2 items-center px-4 py-2">
         <Logo />
-        <HumButton />
+        <HamMenu />
       </div>
-
-      <div className="hidden md:flex justify-between items-center max-w-7xl mx-auto">
+      <div className="hidden lg:flex justify-between items-center max-w-7xl mx-auto">
         <Logo />
 
         <ul
@@ -34,13 +33,24 @@ const Navbar = () => {
          blue-glass w-fit rounded-full border-2
           shadow-lg shadow-blue-500/5"
         >
-          <Tab setPosition={setPosition}>Home</Tab>
-          <Tab setPosition={setPosition}>About</Tab>
-          <Tab setPosition={setPosition}>Skills</Tab>
-          <Tab setPosition={setPosition}>Projects</Tab>
-          <Tab setPosition={setPosition}>Certificates</Tab>
-          <Tab setPosition={setPosition}>Contact</Tab>
-
+          <Tab setPosition={setPosition} href="##home">
+            Home
+          </Tab>
+          <Tab setPosition={setPosition} href="##about">
+            About
+          </Tab>
+          <Tab setPosition={setPosition} href="##skills">
+            Skills
+          </Tab>
+          <Tab setPosition={setPosition} href="##projects">
+            Projects
+          </Tab>
+          <Tab setPosition={setPosition} href="##certificates">
+            Certificates
+          </Tab>
+          <Tab setPosition={setPosition} href="##contact">
+            Contact
+          </Tab>
           <Pill position={position} />
         </ul>
         <ThemeToggle />

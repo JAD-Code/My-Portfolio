@@ -4,7 +4,10 @@ import Button from "../../ui/Button";
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-auto lg:h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 pt-20 lg:pt-0 overflow-hidden">
+    <div
+      id="#home"
+      className="relative w-full h-auto lg:h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 pt-20 lg:pt-0 overflow-hidden"
+    >
       {/* left side */}
       <div className="flex-1 text-center lg:text-left lg:ml-8 max-w-2xl z-10">
         <h1 className="text-5xl lg:text-6xl font-extrabold text-white">

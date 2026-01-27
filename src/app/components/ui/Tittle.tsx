@@ -7,7 +7,7 @@ const Tittle = ({ text, highlightedText, bgText }: TittleProps) => {
   return (
     <div className="relative flex justify-center items-center py-10">
       <h2
-        className="text-5xl lg:text-6xl font-extrabold text-white 
+        className="text-4xl lg:text-6xl font-extrabold text-white 
       z-10 text-center"
       >
         {text}{" "}
@@ -20,7 +20,7 @@ const Tittle = ({ text, highlightedText, bgText }: TittleProps) => {
       </h2>
       <span
         className="absolute top-1/2 left-1/2 -translate-x-1/2 
-      -translate-y-1/2 text-8xl md:text-8xl lg:text-9xl font-bold
+      -translate-y-1/2 text-[70px] md:text-8xl lg:text-[105px] font-bold
        text-white/[0.06] select-none pointer-events-none whitespace-nowrap"
       >
         {bgText}

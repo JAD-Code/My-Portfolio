@@ -1,18 +1,31 @@
 import useTheme from "@/src/app/hooks/useTheme";
 
+import { Sun, Moon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
-  if (!theme) return null;
+
   return (
     <button
-      className="border-2 rounded-full p-3
-     text-black cursor-pointer
-      bg-white/20 dark:bg-blue-900/20 backdrop-blur-xl 
-           border-white/20 dark:border-blue-400/10
-            transition-colors duration-300 ease-out"
       onClick={toggleTheme}
+      className="relative h-10 w-10 flex items-center justify-center rounded-full bg-white/10 border border-white/10 backdrop-blur-md overflow-hidden group"
     >
-      {theme === "dark" ? "🌙" : "☀️"}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={theme}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -20, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {theme === "dark" ? (
+            <Moon size={18} className="text-blue-400" />
+          ) : (
+            <Sun size={18} className="text-yellow-400" />
+          )}
+        </motion.div>
+      </AnimatePresence>
     </button>
   );
 };
