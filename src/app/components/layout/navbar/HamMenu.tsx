@@ -1,10 +1,49 @@
-import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import { useState, useEffect } from "react";
+import { AnimatePresence, motion, MotionConfig, Variants } from "framer-motion";
+import { useState, useEffect, JSX } from "react";
 import { Home, User, GraduationCap, Briefcase, Cpu, Mail } from "lucide-react";
 
-const HamMenu = () => {
-  const [active, setActive] = useState(false);
-  const navLinks = [
+interface NavLink {
+  id: string;
+  label: string;
+  icon: JSX.Element;
+}
+
+const listVariants: Variants = {
+  open: {
+    transition: {
+      staggerChildren: 0.04,
+      delayChildren: 0.25,
+    },
+  },
+  closed: {
+    transition: {
+      staggerChildren: 0.02,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  open: {
+    x: 0,
+    transition: {
+      duration: 0.25,
+      ease: "easeOut",
+    },
+  },
+  closed: {
+    x: 8,
+    transition: {
+      duration: 0.2,
+      ease: "easeIn",
+    },
+  },
+};
+
+const HamMenu: React.FC = () => {
+  const [active, setActive] = useState<boolean>(false);
+
+  const navLinks: NavLink[] = [
     { id: "home", label: "Home", icon: <Home size={20} /> },
     { id: "about", label: "About", icon: <User size={20} /> },
     { id: "skills", label: "Skills", icon: <Cpu size={20} /> },
@@ -26,10 +65,9 @@ const HamMenu = () => {
       <MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
         <motion.button
           initial={false}
-          onClick={() => setActive((prv) => !prv)}
+          onClick={() => setActive((prev) => !prev)}
           animate={active ? "open" : "closed"}
-          className="relative h-16 w-16 rounded-full blue-glass-hover 
-          cursor-pointer z-[60]"
+          className="relative h-16 w-16 rounded-full blue-glass-hover cursor-pointer z-[60]"
         >
           <motion.span
             style={{ left: "50%", top: "35%", x: "-50%", y: "-50%" }}
@@ -96,10 +134,7 @@ const HamMenu = () => {
               variants={{
                 open: {
                   clipPath: "circle(150% at 100% 0%)",
-                  transition: {
-                    duration: 0.8,
-                    ease: [0.4, 0, 0.2, 1],
-                  },
+                  transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
                 },
                 closed: {
                   clipPath: "circle(0% at 100% 0%)",
@@ -110,42 +145,37 @@ const HamMenu = () => {
                   },
                 },
               }}
-              className="fixed inset-0 blue-glass z-50 lg:hidden flex 
-              flex-col items-center justify-center"
+              className="fixed inset-0 blue-glass z-50 lg:hidden flex flex-col items-center justify-center"
             >
               <div className="w-full max-w-md px-10">
-                <ul className="flex flex-col gap-4 w-full">
-                  {navLinks.map((link, index) => (
+                <motion.ul
+                  variants={listVariants}
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  className="flex flex-col gap-4 w-full"
+                >
+                  {navLinks.map((link) => (
                     <motion.li
                       key={link.id}
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + index * 0.1 }}
+                      variants={itemVariants}
                       className="w-full"
                     >
                       <a
                         href={`#${link.id.toLowerCase()}`}
                         onClick={() => setActive(false)}
-                        className="flex items-center gap-6 text-3xl font-bold 
-                        tracking-[0.1em] text-white py-4 border-b
-                        border-white/10 transition-all duration-300 group
-                        hover:text-[#4facfe] hover:translate-x-2"
+                        className="flex items-center gap-6 text-3xl font-bold tracking-[0.1em] text-white py-4 border-b border-white/10 transition-all duration-300 group hover:text-[#4facfe] hover:translate-x-2"
                       >
                         <span className="text-[#4facfe] group-hover:scale-125 transition-transform duration-300">
                           {link.icon}
                         </span>
-                        <span
-                          className="group-hover:bg-gradient-to-r
-                        group-hover:from-[#4facfe] 
-                        group-hover:to-[#00f2fe] group-hover:bg-clip-text 
-                        group-hover:text-transparent transition-all duration-300"
-                        >
+                        <span className="group-hover:bg-gradient-to-r group-hover:from-[#4facfe] group-hover:to-[#00f2fe] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                           {link.label}
                         </span>
                       </a>
                     </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
               </div>
             </motion.div>
           </>
