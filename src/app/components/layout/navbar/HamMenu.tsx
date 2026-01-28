@@ -4,18 +4,17 @@ import { Home, User, GraduationCap, Briefcase, Cpu, Mail } from "lucide-react";
 
 const HamMenu = () => {
   const [active, setActive] = useState(false);
-
   const navLinks = [
     { id: "home", label: "Home", icon: <Home size={20} /> },
     { id: "about", label: "About", icon: <User size={20} /> },
     { id: "skills", label: "Skills", icon: <Cpu size={20} /> },
     { id: "projects", label: "Projects", icon: <Briefcase size={20} /> },
     {
-      id: "certificates",
+      id: "#certificates",
       label: "Certificates",
       icon: <GraduationCap size={20} />,
     },
-    { id: "contact", label: "Contact", icon: <Mail size={20} /> },
+    { id: "#contact", label: "Contact", icon: <Mail size={20} /> },
   ];
 
   useEffect(() => {
@@ -24,7 +23,6 @@ const HamMenu = () => {
 
   return (
     <nav className="relative z-50">
-      {/* زر الهامبرغر — untouched */}
       <MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
         <motion.button
           initial={false}
@@ -82,16 +80,14 @@ const HamMenu = () => {
       <AnimatePresence>
         {active && (
           <>
-            {/* Overlay — blur أخف */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActive(false)}
-              className="fixed inset-0 z-40 bg-black/30 backdrop-blur-[2px]"
+              className="fixed inset-0 z-40 lg:hidden bg-black/20"
             />
 
-            {/* Menu */}
             <motion.div
               key="mobile-menu"
               initial="closed"
@@ -99,57 +95,50 @@ const HamMenu = () => {
               exit="closed"
               variants={{
                 open: {
-                  clipPath: "circle(140% at 100% 0%)",
+                  clipPath: "circle(150% at 100% 0%)",
                   transition: {
-                    duration: 0.45,
-                    ease: "easeOut",
+                    duration: 0.8,
+                    ease: [0.4, 0, 0.2, 1],
                   },
                 },
                 closed: {
                   clipPath: "circle(0% at 100% 0%)",
                   transition: {
                     duration: 0.35,
-                    ease: "easeIn",
+                    ease: [0.4, 0, 0.2, 1],
+                    delay: 0.1,
                   },
                 },
               }}
-              className="fixed inset-0 blue-glass z-50 flex 
-              flex-col items-center justify-center will-change-[clip-path]"
+              className="fixed inset-0 blue-glass z-50 lg:hidden flex 
+              flex-col items-center justify-center"
             >
               <div className="w-full max-w-md px-10">
                 <ul className="flex flex-col gap-4 w-full">
                   {navLinks.map((link, index) => (
                     <motion.li
                       key={link.id}
-                      initial={{ opacity: 0, x: 30 }}
+                      initial={{ opacity: 0, x: 50 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        delay: 0.25 + index * 0.07,
-                        duration: 0.3,
-                        ease: "easeOut",
-                      }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
                       className="w-full"
                     >
                       <a
-                        href={`#${link.id}`}
+                        href={`#${link.id.toLowerCase()}`}
                         onClick={() => setActive(false)}
                         className="flex items-center gap-6 text-3xl font-bold 
                         tracking-[0.1em] text-white py-4 border-b
                         border-white/10 transition-all duration-300 group
                         hover:text-[#4facfe] hover:translate-x-2"
                       >
-                        <span
-                          className="text-[#4facfe] group-hover:scale-125 
-                          transition-transform duration-300"
-                        >
+                        <span className="text-[#4facfe] group-hover:scale-125 transition-transform duration-300">
                           {link.icon}
                         </span>
                         <span
                           className="group-hover:bg-gradient-to-r
-                          group-hover:from-[#4facfe] 
-                          group-hover:to-[#00f2fe] group-hover:bg-clip-text 
-                          group-hover:text-transparent transition-all 
-                          duration-300"
+                        group-hover:from-[#4facfe] 
+                        group-hover:to-[#00f2fe] group-hover:bg-clip-text 
+                        group-hover:text-transparent transition-all duration-300"
                         >
                           {link.label}
                         </span>
