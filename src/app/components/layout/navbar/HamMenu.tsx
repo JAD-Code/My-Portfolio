@@ -6,10 +6,10 @@ const HamMenu = () => {
   const [active, setActive] = useState(false);
 
   const navLinks = [
-    { id: "#home", label: "Home", icon: <Home size={20} /> },
-    { id: "#about", label: "About", icon: <User size={20} /> },
-    { id: "#skills", label: "Skills", icon: <Cpu size={20} /> },
-    { id: "#projects", label: "Projects", icon: <Briefcase size={20} /> },
+    { id: "home", label: "Home", icon: <Home size={20} /> },
+    { id: "about", label: "About", icon: <User size={20} /> },
+    { id: "skills", label: "Skills", icon: <Cpu size={20} /> },
+    { id: "projects", label: "Projects", icon: <Briefcase size={20} /> },
     {
       id: "#certificates",
       label: "Certificates",

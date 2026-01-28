@@ -33,22 +33,22 @@ const Navbar = () => {
          blue-glass w-fit rounded-full border-2
           shadow-lg shadow-blue-500/5"
         >
-          <Tab setPosition={setPosition} href="##home">
+          <Tab setPosition={setPosition} href="#home">
             Home
           </Tab>
-          <Tab setPosition={setPosition} href="##about">
+          <Tab setPosition={setPosition} href="#about">
             About
           </Tab>
-          <Tab setPosition={setPosition} href="##skills">
+          <Tab setPosition={setPosition} href="#skills">
             Skills
           </Tab>
-          <Tab setPosition={setPosition} href="##projects">
+          <Tab setPosition={setPosition} href="#projects">
             Projects
           </Tab>
-          <Tab setPosition={setPosition} href="##certificates">
+          <Tab setPosition={setPosition} href="#certificates">
             Certificates
           </Tab>
-          <Tab setPosition={setPosition} href="##contact">
+          <Tab setPosition={setPosition} href="#contact">
             Contact
           </Tab>
           <Pill position={position} />

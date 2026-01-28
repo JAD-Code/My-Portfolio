@@ -8,7 +8,7 @@ const Pill = ({ position }: PillProps) => {
   return (
     <motion.li
       animate={position}
-      className="absolute z-0 h-9 rounded-full blue-glass pointer-events-none"
+      className="absolute z-0 h-9 rounded-full blue-glass-pill pointer-events-none"
     />
   );
 };

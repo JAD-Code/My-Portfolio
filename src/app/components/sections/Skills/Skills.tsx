@@ -3,7 +3,7 @@ import Tittle from "../../ui/Tittle";
 
 const Skills = () => {
   return (
-    <section id="#skills" className="py-20 overflow-hidden">
+    <section id="skills" className="py-20 overflow-hidden">
       <div className="container mx-auto">
         <Tittle text="My" highlightedText="Skills" bgText="SKILLS" />
 

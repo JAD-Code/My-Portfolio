@@ -55,39 +55,49 @@ body {
 }
 
 @utility blue-glass {
-  @apply relative overflow-hidden antialiased rounded-lg transition-all duration-500;
-  @apply bg-blue-950/40 backdrop-blur-sm border border-blue-500/50;
-  @apply shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_0_15px_rgba(0,180,216,0.2)];
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  @apply relative overflow-hidden antialiased rounded-lg transition-transform duration-300;
+
+  @apply bg-blue-950/40 backdrop-blur-[2px] border border-blue-500/40;
+
+  @apply shadow-lg shadow-black/40;
 
   &::before {
-    @apply absolute inset-0 rounded-[inherit] pointer-events-none;
-    @apply bg-gradient-to-br from-blue-400/30 via-blue-600/5 to-transparent content-[''];
-  }
-
-  &::after {
-    @apply absolute inset-0 rounded-[inherit] pointer-events-none;
-    @apply shadow-[inset_0_1px_1px_rgba(144,224,239,0.5)] content-[''];
+    @apply absolute inset-0 rounded-[inherit] pointer-events-none content-[''];
+    background: linear-gradient(
+      135deg,
+      rgba(96, 165, 250, 0.2) 0%,
+      transparent 35%
+    );
+    border: 1px solid rgba(144, 224, 239, 0.2);
   }
 }
 
 @utility blue-glass-hover {
-  @apply hover:bg-blue-900/60 hover:border-cyan-400/80;
-  @apply hover:shadow-[0_0_40px_rgba(3,4,94,0.6),inset_0_0_20px_rgba(0,180,216,0.4)];
-  @apply hover:scale-[1.03] active:scale-[0.98];
+  @apply transition-all duration-300 ease-out;
+  @apply hover:bg-blue-900/50 hover:scale-[1.02] active:scale-[0.98];
+  @apply hover:shadow-blue-500/20 hover:shadow-xl;
 }
 
 @utility blue-glass-pill {
   will-change: transform, left, width;
-  @apply relative overflow-hidden antialiased rounded-full transition-all;
-  @apply bg-blue-900/60 backdrop-blur-md border border-cyan-400/80;
-  @apply shadow-[0_0_40px_rgba(3,4,94,0.6),inset_0_0_20px_rgba(0,180,216,0.4)];
-  @apply border-t-white/20;
-
+  transform: translateZ(0);
+  @apply absolute overflow-hidden antialiased rounded-full transition-all duration-300 ease-out;
+  @apply bg-blue-600/30 backdrop-blur-[2px] border border-cyan-400/50;
+  @apply shadow-[0_0_15px_rgba(0,180,216,0.3)];
+  @apply border-t-white/40;
   &::before {
-    @apply absolute inset-0 rounded-full pointer-events-none;
-    @apply bg-gradient-to-tr from-blue-800/20 via-transparent to-white/10 content-[''];
+    @apply absolute inset-0 rounded-full pointer-events-none content-[''];
+    background: linear-gradient(
+      to top right,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
   }
 }
+
 @theme {
   --color-cyan-glow: rgba(34, 211, 238, 0.4);
 }
