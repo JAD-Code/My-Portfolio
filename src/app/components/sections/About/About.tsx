@@ -1,5 +1,5 @@
-import Card from "../../ui/Cards/Card";
-import SmallCard from "../../ui/Cards/SmallCard";
+import Card from "../../ui/Cards/GlassyCard";
+import SmallCard from "../../ui/Cards/SmallGlassyCard";
 import Tittle from "../../ui/Tittle";
 import LevitatingAnimations from "./LevitatingAnimations";
 import { Cpu, Terminal } from "lucide-react";
