@@ -3,7 +3,7 @@ import Tittle from "../../ui/Tittle";
 
 const Contact = () => {
   return (
-    <section>
+    <section id="contact">
       <Tittle text="Contact" highlightedText="Me" bgText="Contact" />
     </section>
   );

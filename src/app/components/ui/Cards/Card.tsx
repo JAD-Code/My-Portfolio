@@ -1,6 +1,6 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Drawer from "../Drawer";
 import GitHubLogo from "@/src/app/components/icons/GitHubLogo";
 import { ExternalLinkIcon } from "lucide-react";
@@ -18,6 +18,8 @@ interface CardProps {
   certificate?: boolean;
 }
 
+let activeVideo: HTMLVideoElement | null = null;
+
 const Card: React.FC<CardProps> = ({
   img,
   videoSrc,
@@ -34,16 +36,24 @@ const Card: React.FC<CardProps> = ({
   const [showVideo, setShowVideo] = useState(false);
   const [touchTimer, setTouchTimer] = useState<NodeJS.Timeout | null>(null);
 
+  const cardVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (open && cardVideoRef.current) {
+      cardVideoRef.current.pause();
+    }
+  }, [open]);
+
   return (
     <div
       onClick={() => setOpen(true)}
-      className="group w-full max-w-sm overflow-hidden rounded-2xl
-        bg-neutral-900 border-4 border-neutral-800 hover:border-blue-500/50
-        transition-all duration-300 shadow-2xl hover:shadow-blue-500/10 relative"
+      className="group w-full max-w-[90%] sm:max-w-sm overflow-hidden rounded-2xl
+      bg-neutral-900 border-2 sm:border-4 border-neutral-800 hover:border-blue-500/50
+      transition-all duration-300 shadow-2xl hover:shadow-blue-500/10 relative mx-auto"
     >
       {/* Image / Video */}
       <div
-        className="relative h-52 overflow-hidden"
+        className="relative h-40 sm:h-52 overflow-hidden"
         onMouseEnter={() => setShowVideo(true)}
         onMouseLeave={() => setShowVideo(false)}
         onTouchStart={() => {
@@ -54,6 +64,7 @@ const Card: React.FC<CardProps> = ({
       >
         {showVideo && videoSrc ? (
           <video
+            ref={cardVideoRef}
             src={videoSrc}
             className="w-full h-full object-cover"
             autoPlay
@@ -61,6 +72,12 @@ const Card: React.FC<CardProps> = ({
             loop
             playsInline
             preload="none"
+            onPlay={() => {
+              if (activeVideo && activeVideo !== cardVideoRef.current) {
+                activeVideo.pause();
+              }
+              activeVideo = cardVideoRef.current;
+            }}
           />
         ) : (
           <Image
@@ -82,7 +99,6 @@ const Card: React.FC<CardProps> = ({
           {subTitle}
         </p>
 
-        {/* Tech Stack Logos */}
         {logos.length > 0 && (
           <div className="flex items-center gap-4 pt-4 border-t border-neutral-800">
             {logos.map((logo, idx) => (
@@ -96,7 +112,6 @@ const Card: React.FC<CardProps> = ({
           </div>
         )}
 
-        {/* Drawer Trigger Button */}
         <div className="flex justify-end mt-4">
           <button
             onClick={() => setOpen(true)}
@@ -142,7 +157,6 @@ const Card: React.FC<CardProps> = ({
               </h3>
 
               <div className="flex flex-wrap gap-3 mt-2">
-                {/* Demo / Certificate Button */}
                 {demoLink && (
                   <a
                     href={demoLink}
@@ -159,7 +173,6 @@ const Card: React.FC<CardProps> = ({
                   </a>
                 )}
 
-                {/* Repo Button */}
                 {repoLink && isPublic && !certificate ? (
                   <a
                     href={repoLink}
@@ -188,7 +201,6 @@ const Card: React.FC<CardProps> = ({
               {longSubTitle}
             </p>
 
-            {/* Tech Stack inside Drawer */}
             {logos.length > 0 && !certificate && (
               <div className="pt-6">
                 <h4 className="text-sm font-semibold uppercase tracking-widest text-neutral-500 mb-4">

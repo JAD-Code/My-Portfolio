@@ -12,7 +12,7 @@ const Projects = () => {
   return (
     <div id="projects" className="py-10">
       <Tittle text="My" highlightedText="Projects" bgText="PROJECTS" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center lg:justify-center">
+      <div className="w-full overflow-x-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         <Card
           img={UniWayPic}
           videoSrc="/videos/UniWayShope.webm"
