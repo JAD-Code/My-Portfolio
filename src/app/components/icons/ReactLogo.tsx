@@ -1,7 +1,13 @@
-const ReactLogo = () => {
+import React from "react";
+
+type ReactLogoProps = {
+  className?: string;
+};
+
+const ReactLogo: React.FC<ReactLogoProps> = ({ className = "w-12 h-12" }) => {
   return (
     <svg
-      className="w-[30px] h-[30px]"
+      className={className}
       viewBox="0 0 569 512"
       xmlns="http://www.w3.org/1999/xlink"
     >

@@ -80,14 +80,14 @@ const Drawer: React.FC<DrawerProps> = ({ open, setOpen, children }) => {
           >
             {/* Header / Drag Handle Area */}
             <div
+              onPointerDown={(e) => control.start(e)}
               className="absolute left-0 right-0 top-0 z-10 flex 
             items-center justify-center p-4 bg-neutral-900/50 
-            backdrop-blur-md"
+            backdrop-blur-md touch-none cursor-grab active:cursor-grabbing"
             >
               <button
-                onPointerDown={(e) => control.start(e)}
-                className="h-1.5 w-16 cursor-grab touch-none rounded-full
-                           bg-neutral-700 active:cursor-grabbing
+                className="h-1.5 w-16 rounded-full
+                           bg-neutral-700 
                            hover:bg-neutral-600 transition-colors"
                 aria-label="Drag handle"
               ></button>

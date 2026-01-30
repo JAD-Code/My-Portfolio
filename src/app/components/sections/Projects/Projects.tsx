@@ -1,50 +1,47 @@
+import NextLogo from "../../icons/NextLogo";
 import ReactLogo from "../../icons/ReactLogo";
 import TailwindLogo from "../../icons/TailwindLogo";
+import TsLogo from "../../icons/TsLogo";
 import Card from "../../ui/Cards/Card";
 import Tittle from "../../ui/Tittle";
-import image1 from "@/public/images/image1.jpg";
-
+import UniWayPic from "@/public/images/UniWayPic.png";
+import akhlaqGarmentPic from "@/public/images/akhlaqGarmentPic.png";
+import MotionLogo from "../../icons/MotionLogo";
+import JsLogo from "../../icons/JsLogo";
 const Projects = () => {
-  const projectsData = [
-    { id: 1, title: "My Project 1", subTitle: "Description 1..." },
-    { id: 2, title: "My Project 2", subTitle: "Description 2..." },
-    { id: 3, title: "My Project 3", subTitle: "Description 3..." },
-    { id: 4, title: "My Project 4", subTitle: "Description 4..." },
-  ];
   return (
     <div id="projects" className="py-10">
       <Tittle text="My" highlightedText="Projects" bgText="PROJECTS" />
-      <div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-10 
-     my-8 justify-items-center"
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center lg:justify-center">
         <Card
-          img={image1}
-          title="My Project"
-          subTitle="Description goes here..."
+          img={UniWayPic}
+          videoSrc="/videos/UniWayShope.webm"
+          title="UnyWay: Campus Marketplace Web Application"
+          demoLink="https://uniway-sy.shop/"
+          subTitle="A student-focused platform offering shopping and various services for university students."
+          longSubTitle="UniWay was a platform I co-founded with a friend, designed to provide university students with diverse services, including product shopping, store card top-ups, and more. It featured an admin dashboard with automation and a Telegram bot for admins. Future plans included adding mentoring, educational courses, and expanding services for freelancers. The project was unfortunately discontinued shortly after launch due to insufficient funding."
           isPublic={false}
-          logos={[<TailwindLogo key="tailwind" />, <ReactLogo key="react" />]}
+          logos={[
+            <NextLogo key="react" className="w-8 h-8" />,
+            <TsLogo key="react" className="w-8 h-8" />,
+            <TailwindLogo key="tailwind" className="w-8 h-8" />,
+            <MotionLogo key="react" className="w-8 h-8" />,
+          ]}
         />
         <Card
-          img={image1}
-          title="My Project"
-          subTitle="Description goes here..."
-          isPublic={true}
-          logos={[<TailwindLogo key="tailwind" />, <ReactLogo key="react" />]}
-        />
-        <Card
-          img={image1}
-          title="My Project"
-          subTitle="Description goes here..."
+          img={akhlaqGarmentPic}
+          title="Akhlaq - clothing manufacture"
+          demoLink="https://akhlaq-garment.vercel.app/#home"
+          videoSrc="/videos/akhlaqGarmentVideo.webm"
+          subTitle="Akhlaq Garment – Freelance work for an Ethiopian clothing manufacturer"
+          longSubTitle="I worked as a freelancer for Akhlaq Garment, an Ethiopian clothing manufacturing company, contributing to their projects and supporting their digital needs."
           isPublic={false}
-          logos={[<TailwindLogo key="tailwind" />, <ReactLogo key="react" />]}
-        />
-        <Card
-          img={image1}
-          title="My Project"
-          subTitle="Description goes here..."
-          isPublic={true}
-          logos={[<TailwindLogo key="tailwind" />, <ReactLogo key="react" />]}
+          logos={[
+            <ReactLogo key="react" className="w-8 h-8" />,
+            <JsLogo key="react" className="w-8 h-8" />,
+            <TailwindLogo key="tailwind" className="w-8 h-8" />,
+            <MotionLogo key="react" className="w-8 h-8" />,
+          ]}
         />
       </div>
     </div>
