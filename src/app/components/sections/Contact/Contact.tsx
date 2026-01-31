@@ -157,26 +157,26 @@ const Contact = () => {
 
             <ContactCard
               title="Email"
-              value="yourname@example.com"
+              value="jadcode9@gmail.com"
               icon={<GmailLogo className="w-6 h-6" />}
-              link="mailto:yourname@example.com"
+              link="mailto:jadcode9@gmail.com"
             />
 
             <ContactCard
               title="GitHub"
-              value="github.com/yourusername"
+              value="JAD-Code"
               icon={<GitHubLogo className="w-6 h-6" />}
-              link="https://github.com"
+              link="https://github.com/JAD-Code"
             />
 
-            <ContactCard
+            {/*<ContactCard
               title="X (formerly Twitter)"
               value="@yourusername"
               icon={
                 <XLogo className="w-5 h-5 text-white/80 group-hover:text-cyan-300 transition-colors" />
               }
               link="https://x.com/yourusername"
-            />
+            />*/}
           </div>
 
           {/* FORM */}
