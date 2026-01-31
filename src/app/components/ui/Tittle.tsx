@@ -20,8 +20,9 @@ const Tittle = ({ text, highlightedText, bgText }: TittleProps) => {
       </h2>
       <span
         className="absolute top-1/2 left-1/2 -translate-x-1/2 
-      -translate-y-1/2 text-[70px] md:text-8xl lg:text-[105px] font-bold
-       text-white/[0.06] select-none pointer-events-none whitespace-nowrap"
+      -translate-y-1/2 text-[65px] md:text-8xl lg:text-[105px] font-bold
+       text-white/[0.06] select-none pointer-events-none whitespace-nowrap
+       overflow-hidden"
       >
         {bgText}
       </span>

@@ -19,9 +19,12 @@ import aiPic from "@/public/images/aiPic.jpg";
 
 const Certificates = () => {
   return (
-    <section id="certificates">
+    <section id="certificates" className="my-20">
       <Tittle text="My" highlightedText="Certificates" bgText="Certificates" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center lg:justify-center">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8
+       justify-items-center lg:justify-center my-10"
+      >
         <Card
           img={ReactBasicsCERTIFICATE}
           title="Meta Front-End React Basics Certificate"

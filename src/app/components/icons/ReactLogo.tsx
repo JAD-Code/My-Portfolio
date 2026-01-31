@@ -11,7 +11,7 @@ const ReactLogo: React.FC<ReactLogoProps> = ({ className = "w-12 h-12" }) => {
       viewBox="0 0 569 512"
       xmlns="http://www.w3.org/1999/xlink"
     >
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <g transform="translate(-227, -256)" fill="#58C4DC" fill-rule="nonzero">
           <g transform="translate(227, 256)">
             <path

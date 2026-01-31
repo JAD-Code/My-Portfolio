@@ -10,9 +10,12 @@ import MotionLogo from "../../icons/MotionLogo";
 import JsLogo from "../../icons/JsLogo";
 const Projects = () => {
   return (
-    <div id="projects" className="py-10">
+    <div id="projects">
       <Tittle text="My" highlightedText="Projects" bgText="PROJECTS" />
-      <div className="w-full overflow-x-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      <div
+        className="w-full overflow-x-hidden grid grid-cols-1 
+      sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mt-10"
+      >
         <Card
           img={UniWayPic}
           videoSrc="/videos/UniWayShope.webm"

@@ -49,11 +49,11 @@ const HamMenu: React.FC = () => {
     { id: "skills", label: "Skills", icon: <Cpu size={20} /> },
     { id: "projects", label: "Projects", icon: <Briefcase size={20} /> },
     {
-      id: "#certificates",
+      id: "certificates",
       label: "Certificates",
       icon: <GraduationCap size={20} />,
     },
-    { id: "#contact", label: "Contact", icon: <Mail size={20} /> },
+    { id: "contact", label: "Contact", icon: <Mail size={20} /> },
   ];
 
   useEffect(() => {

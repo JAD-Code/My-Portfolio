@@ -71,7 +71,8 @@ const LevitatingAnimations = () => {
                 apps
               </h3>
 
-              <motion.button
+              <motion.a
+                href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="mt-6 px-6 py-2 bg-gradient-to-r from-cyan-500
@@ -79,7 +80,7 @@ const LevitatingAnimations = () => {
                  shadow-[0_0_20px_rgba(34,211,238,0.3)]"
               >
                 Contact Me
-              </motion.button>
+              </motion.a>
             </div>
 
             <div className="absolute bottom-20 flex gap-1 items-end h-8">
