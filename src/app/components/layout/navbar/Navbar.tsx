@@ -53,7 +53,7 @@ const Navbar = () => {
           </Tab>
           <Pill position={position} />
         </ul>
-        <ThemeToggle />
+        {/*<ThemeToggle />*/}
       </div>
     </div>
   );

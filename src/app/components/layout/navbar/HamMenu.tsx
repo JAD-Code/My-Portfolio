@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, MotionConfig, Variants } from "framer-motion";
 import { useState, useEffect, JSX } from "react";
-import { Home, User, GraduationCap, Briefcase, Cpu, Mail } from "lucide-react";
+import { Home, User, GraduationCap, Cpu, Mail, Terminal } from "lucide-react";
 
 interface NavLink {
   id: string;
@@ -47,7 +47,7 @@ const HamMenu: React.FC = () => {
     { id: "home", label: "Home", icon: <Home size={20} /> },
     { id: "about", label: "About", icon: <User size={20} /> },
     { id: "skills", label: "Skills", icon: <Cpu size={20} /> },
-    { id: "projects", label: "Projects", icon: <Briefcase size={20} /> },
+    { id: "projects", label: "Projects", icon: <Terminal size={20} /> },
     {
       id: "certificates",
       label: "Certificates",

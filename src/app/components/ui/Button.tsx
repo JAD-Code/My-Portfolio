@@ -1,17 +1,19 @@
 interface ButtonProps {
   colorClass: string;
   text: string;
-  onClick?: () => void;
+  href?: string;
+  target?: string;
 }
 
-const Button = ({ colorClass, text, onClick }: ButtonProps) => {
+const Button = ({ colorClass, text, href, target }: ButtonProps) => {
   return (
-    <button
-      onClick={onClick}
+    <a
+      target={target}
+      href={href}
       className={`${colorClass} px-8 py-3 cursor-pointer text-cyan-50 font-semibold uppercase tracking-wider transition-all duration-300`}
     >
       {text}
-    </button>
+    </a>
   );
 };
 

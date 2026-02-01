@@ -10,11 +10,11 @@ body {
 
 @theme {
   --font-fugaz: "Fugaz One", Impact, "Arial Black", sans-serif;
-  --color-bg-aurora-start: #f0f7ff;
+  /*--color-bg-aurora-start: #f0f7ff;
   --color-bg-aurora-end: #03045e;
   --color-text-primary: #000000;
   --bg-accent: linear-gradient(to right, #48cae4, #00b4d8);
-  --color-accent-gradient: linear-gradient(to right, #03045e, #023e8a);
+  --color-accent-gradient: linear-gradient(to right, #03045e, #023e8a);*/
 }
 
 .dark {

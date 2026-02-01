@@ -18,12 +18,12 @@ const About = () => {
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
         <div className="space-y-4">
           <Card
-            tittle="Engineering the Web"
-            subtitle="I am a who bridges the gap between complex logic and intuitive design. My
-              background in engineering has honed my ability to analyze systems
-              and optimize data flow, which I translate into clean, scalable code."
-            hashtag1=" #System_Architecture"
-            hashtag2=" #Performance_Opt"
+            title="Engineering the Web"
+            subtitle="I’m Jad, a Front-End Developer with a passion for turning complex ideas into seamless,
+             interactive web experiences. My background in Communication Engineering gives me a unique perspective,
+              I focus on clean, efficient, and well-structured code that not only works flawlessly but scales beautifully.
+               I love exploring modern technologies, crafting intuitive interfaces, and continuously learning to push the boundaries
+                of what the web can do."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
