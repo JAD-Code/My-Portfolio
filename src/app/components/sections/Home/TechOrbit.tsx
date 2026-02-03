@@ -6,10 +6,10 @@ const TechOrbit = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   const orbitItems = [
-    { name: "Pixel-Perfect\nUI" },
+    { name: "Pixel Perfect\nUI" },
     { name: "Performance\nFirst" },
     { name: "Scalable\nArchitecture" },
-    { name: "User-Centric\nDesign" },
+    { name: "User Centric\nDesign" },
     { name: "Clean\nCode" },
     { name: "Responsive\nSystems" },
     { name: "Maintainable\nComponents" },

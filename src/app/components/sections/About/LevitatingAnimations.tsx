@@ -53,7 +53,8 @@ const LevitatingAnimations = () => {
                   ) : (
                     part
                   )
-                )}
+                )}{" "}
+                web apps
               </h3>
 
               <motion.a
