@@ -1,16 +1,7 @@
-import BootstrapLogo from "../../icons/BootstrapLogo";
-import CppLogo from "../../icons/CppLogo";
-import CssLogo from "../../icons/CssLogo";
-import FigmaLogo from "../../icons/FigmaLogo";
-import GitLogo from "../../icons/GitLogo";
-import HtmlLogo from "../../icons/HtmlLogo";
-import JsLogo from "../../icons/JsLogo";
-import MotionLogo from "../../icons/MotionLogo";
-import NextLogo from "../../icons/NextLogo";
-import ReactLogo from "../../icons/ReactLogo";
-import TailwindLogo from "../../icons/TailwindLogo";
-import TsLogo from "../../icons/TsLogo";
+import { skillGroups } from "@/src/app/data/skills";
+import { logoMap } from "@/src/app/components/icons";
 import CircleAnimation from "./CircleAnimation";
+import { en } from "@/src/app/i18n/en";
 
 const CirclesContainer = () => {
   const SkillGroup = ({
@@ -30,65 +21,20 @@ const CirclesContainer = () => {
 
   return (
     <div className="flex flex-col items-center p-10 bg-transparent">
-      {/* Languages */}
-      <SkillGroup title="Programming Languages">
-        <CircleAnimation
-          tittle="JavaScript"
-          icon={<JsLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="TypeScript"
-          icon={<TsLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="C++"
-          icon={<CppLogo className="w-12 h-12" />}
-        />
-      </SkillGroup>
-
-      {/*Front-End Stack */}
-      <SkillGroup title="Frontend Stack">
-        <CircleAnimation
-          tittle="HTML5"
-          icon={<HtmlLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="CSS"
-          icon={<CssLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="React"
-          icon={<ReactLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="Next.js"
-          icon={<NextLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="Tailwind"
-          icon={<TailwindLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="Bootstrap"
-          icon={<BootstrapLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="Motion"
-          icon={<MotionLogo className="w-12 h-12" />}
-        />
-      </SkillGroup>
-
-      {/*Tools & Software */}
-      <SkillGroup title="Tools & DevOps">
-        <CircleAnimation
-          tittle="Git"
-          icon={<GitLogo className="w-12 h-12" />}
-        />
-        <CircleAnimation
-          tittle="Figma"
-          icon={<FigmaLogo className="w-12 h-12" />}
-        />
-      </SkillGroup>
+      {skillGroups.map((group) => (
+        <SkillGroup key={group.titleKey} title={en.skills[group.titleKey]}>
+          {group.skills.map((skill) => {
+            const Logo = logoMap[skill.logo];
+            return (
+              <CircleAnimation
+                key={skill.name}
+                tittle={skill.name}
+                icon={<Logo className="w-12 h-12" />}
+              />
+            );
+          })}
+        </SkillGroup>
+      ))}
     </div>
   );
 };

@@ -1,0 +1,22 @@
+export * from "./logoMap";
+
+export { default as ReactLogo } from "./ReactLogo";
+export { default as MetaLogo } from "./MetaLogo";
+export { default as CourseraLogo } from "./CourseraLogo";
+export { default as GitLogo } from "./GitLogo";
+export { default as GitHubLogo } from "./GitHubLogo";
+export { default as JsLogo } from "./JsLogo";
+export { default as TsLogo } from "./TsLogo";
+export { default as HtmlLogo } from "./HtmlLogo";
+export { default as CssLogo } from "./CssLogo";
+export { default as BootstrapLogo } from "./BootstrapLogo";
+export { default as NextLogo } from "./NextLogo";
+export { default as TailwindLogo } from "./TailwindLogo";
+export { default as MotionLogo } from "./MotionLogo";
+export { default as CppLogo } from "./CppLogo";
+export { default as FigmaLogo } from "./FigmaLogo";
+export { default as GmailLogo } from "./GmailLogo";
+export { default as LinkedInLogo } from "./LinkedInLogo";
+export { default as TelegramLogo } from "./TelegramLogo";
+export { default as WhatsAppLogo } from "./WhatsAppLogo";
+export { default as XLogo } from "./XLogo";

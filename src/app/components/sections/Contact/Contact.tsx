@@ -1,81 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import GitHubLogo from "../../icons/GitHubLogo";
-import GmailLogo from "../../icons/GmailLogo";
-import XLogo from "../../icons/XLogo";
-import ContactCard from "../../ui/Cards/ContactCard";
+import { useState } from "react";
 import Tittle from "../../ui/Tittle";
-
-interface InputGroupProps {
-  label: string;
-  placeholder: string;
-  type: string;
-  name: string;
-  value: string;
-  onChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  error?: boolean;
-  textarea?: boolean;
-  rows?: number;
-}
-
-const InputGroup = ({
-  label,
-  placeholder,
-  type,
-  name,
-  value,
-  onChange,
-  error,
-  textarea = false,
-  rows = 5,
-}: InputGroupProps) => {
-  const baseClasses = `
-    w-full rounded-2xl px-4 py-3
-    bg-blue-950/40 border
-    ${error ? "border-red-500" : "border-blue-500/20"}
-    text-white placeholder:text-white/30
-    focus:outline-none focus:border-cyan-400/60
-    focus:bg-blue-900/40
-    transition-all
-  `;
-
-  return (
-    <div className="flex flex-col gap-2">
-      <label className="text-[10px] uppercase tracking-widest text-cyan-300/60 ml-1">
-        {label}
-      </label>
-      {textarea ? (
-        <textarea
-          name={name}
-          placeholder={placeholder}
-          rows={rows}
-          value={value}
-          onChange={onChange}
-          className={baseClasses + " resize-none"}
-        />
-      ) : (
-        <input
-          name={name}
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          className={baseClasses}
-        />
-      )}
-    </div>
-  );
-};
+import InputGroup from "./InputGroup";
+import ContactCard from "./ContactCard";
+import { contacts } from "@/src/app/data/contacts";
+import { logoMap } from "../../icons/logoMap";
+import { useEmail } from "@/src/app/hooks/useEmail";
+import { en } from "@/src/app/i18n/en";
 
 const Contact = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [loading, setLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const { formRef, loading, successMessage, errorMessage, sendEmail } =
+    useEmail();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -96,9 +32,7 @@ const Contact = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (value.trim() !== "") {
-      setErrors((prev) => ({ ...prev, [name]: false }));
-    }
+    if (value.trim() !== "") setErrors((prev) => ({ ...prev, [name]: false }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -111,72 +45,44 @@ const Contact = () => {
       message: !formData.message.trim(),
     };
     setErrors(newErrors);
-
     if (Object.values(newErrors).some((v) => v)) return;
 
-    setLoading(true);
-    setSuccessMessage("");
-    setErrorMessage("");
-
-    if (!formRef.current) return;
-
-    emailjs
-      .sendForm(
-        "service_o7vwszr",
-        "template_nzqyqbn",
-        formRef.current,
-        "5gOPnAZzsrC7ZcgYr"
-      )
-      .then(
-        () => {
-          setLoading(false);
-          setSuccessMessage("Message sent successfully!");
-          setFormData({ name: "", email: "", subject: "", message: "" });
-        },
-        (error) => {
-          console.error("Email send error:", error.text);
-          setLoading(false);
-          setErrorMessage("Failed to send the message.");
-        }
-      );
+    sendEmail();
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
+
+  const contactTexts = en.contact;
 
   return (
     <section id="contact" className="py-20 px-4">
-      <Tittle text="Contact" highlightedText="Me" bgText="Contact" />
+      <Tittle
+        text={contactTexts.sectionTitle.text}
+        highlightedText={contactTexts.sectionTitle.highlightedText}
+        bgText={contactTexts.sectionTitle.bgText}
+      />
       <p className="text-center text-white/70 my-4 max-w-2xl mx-auto">
-        Actively seeking freelance, remote, full-time, or part-time
-        opportunities.
+        {contactTexts.description}
       </p>
 
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* CONTACT + SOCIAL */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white mb-2">Get in Touch</h3>
-
-            <ContactCard
-              title="Email"
-              value="jadcode9@gmail.com"
-              icon={<GmailLogo className="w-6 h-6" />}
-              link="mailto:jadcode9@gmail.com"
-            />
-
-            <ContactCard
-              title="GitHub"
-              value="JAD-Code"
-              icon={<GitHubLogo className="w-6 h-6" />}
-              link="https://github.com/JAD-Code"
-            />
-
-            {/*<ContactCard
-              title="X (formerly Twitter)"
-              value="@yourusername"
-              icon={
-                <XLogo className="w-5 h-5 text-white/80 group-hover:text-cyan-300 transition-colors" />
-              }
-              link="https://x.com/yourusername"
-            />*/}
+            <h3 className="text-xl font-bold text-white mb-2">
+              {contactTexts.getInTouchTitle}
+            </h3>
+            {contacts.map((c) => {
+              const Icon = logoMap[c.icon];
+              return (
+                <ContactCard
+                  key={c.title}
+                  title={c.title}
+                  value={c.value}
+                  link={c.link}
+                  icon={<Icon className="w-6 h-6" />}
+                />
+              );
+            })}
           </div>
 
           {/* FORM */}
@@ -191,8 +97,8 @@ const Contact = () => {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <InputGroup
-                    label="Name"
-                    placeholder="Your Name"
+                    label={contactTexts.form.fields.name.label}
+                    placeholder={contactTexts.form.fields.name.placeholder}
                     type="text"
                     name="name"
                     value={formData.name}
@@ -200,8 +106,8 @@ const Contact = () => {
                     error={errors.name}
                   />
                   <InputGroup
-                    label="Email"
-                    placeholder="youremail@example.com"
+                    label={contactTexts.form.fields.email.label}
+                    placeholder={contactTexts.form.fields.email.placeholder}
                     type="email"
                     name="email"
                     value={formData.email}
@@ -211,18 +117,17 @@ const Contact = () => {
                 </div>
 
                 <InputGroup
-                  label="Subject"
-                  placeholder="Project Inquiry"
+                  label={contactTexts.form.fields.subject.label}
+                  placeholder={contactTexts.form.fields.subject.placeholder}
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   error={errors.subject}
                 />
-
                 <InputGroup
-                  label="Message"
-                  placeholder="Tell me about your project..."
+                  label={contactTexts.form.fields.message.label}
+                  placeholder={contactTexts.form.fields.message.placeholder}
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -233,10 +138,14 @@ const Contact = () => {
                 />
 
                 {successMessage && (
-                  <p className="text-green-400 font-medium">{successMessage}</p>
+                  <p className="text-green-400 font-medium">
+                    {contactTexts.form.successMessage}
+                  </p>
                 )}
                 {errorMessage && (
-                  <p className="text-red-500 font-medium">{errorMessage}</p>
+                  <p className="text-red-500 font-medium">
+                    {contactTexts.form.errorMessage}
+                  </p>
                 )}
 
                 <button
@@ -256,7 +165,9 @@ const Contact = () => {
                     }
                   `}
                 >
-                  {loading ? "Sending..." : "Send Message →"}
+                  {loading
+                    ? contactTexts.form.submitButton.loading
+                    : contactTexts.form.submitButton.default}
                 </button>
               </form>
             </div>

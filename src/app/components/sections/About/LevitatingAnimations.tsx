@@ -1,13 +1,16 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { Wifi, Battery } from "lucide-react";
+import { en } from "@/src/app/i18n/en";
 
 const LevitatingAnimations = () => {
+  const t = en.levitating;
+
   return (
     <div className="flex justify-center items-center p-10 py-20">
       <div
-        className="relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] 
-        rounded-[45px]"
+        className="relative shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-[45px]"
         style={{
           transformStyle: "preserve-3d",
           transform: "rotateX(15deg) rotateY(-25deg)",
@@ -22,64 +25,44 @@ const LevitatingAnimations = () => {
             duration: 2.5,
             ease: "easeInOut",
           }}
-          className="relative h-[500px] w-[250px] rounded-[45px] 
-                       border-2 border-b-4 border-r-4 border-l-neutral-900
-                        border-[#1a1a1a] bg-black 
-                     overflow-hidden"
+          className="relative h-[500px] w-[250px] rounded-[45px] border-2 border-b-4 border-r-4 border-l-neutral-900 border-[#1a1a1a] bg-black overflow-hidden"
         >
           {/*Status Bar*/}
-          <div
-            className="absolute top-0 w-full px-6 pt-4 flex 
-          justify-between items-center z-30"
-          >
-            {/*left side*/}
+          <div className="absolute top-0 w-full px-6 pt-4 flex justify-between items-center z-30">
             <span className="text-white text-[12px] font-bold">9:41</span>
-
-            {/*Dynamic Island*/}
-            <div
-              className="h-6 w-20 bg-black rounded-full border
-             border-white/50 shadow-inner"
-            ></div>
-
-            {/*right side*/}
+            <div className="h-6 w-20 bg-black rounded-full border border-white/50 shadow-inner"></div>
             <div className="flex items-center gap-1.5 text-white">
               <Wifi size={14} strokeWidth={2.5} />
               <div className="relative">
-                <Battery size={18} strokeWidth={2} className="rotate-0" />
+                <Battery size={18} strokeWidth={2} />
               </div>
             </div>
           </div>
 
           {/*screen content*/}
-          <div
-            className="absolute inset-0 bg-black flex flex-col 
-          justify-center items-center px-4"
-          >
-            {/*bg*/}
-            <div
-              className="absolute inset-0 bg-black bg-gradient-to-tr
-             from-blue-600/20 via-transparent to-purple-600/10
-              opacity-100"
-            />
+          <div className="absolute inset-0 bg-black flex flex-col justify-center items-center px-4">
+            <div className="absolute inset-0 bg-black bg-gradient-to-tr from-blue-600/20 via-transparent to-purple-600/10 opacity-100" />
 
             <div className="relative z-10 text-center space-y-4">
-              <h3
-                className="text-white text-xl font-bold tracking-tight
-               leading-tight"
-              >
-                I make <span className="text-cyan-400">responsive</span> web
-                apps
+              <h3 className="text-white text-xl font-bold tracking-tight leading-tight">
+                {t.headline.split("responsive").map((part, i) =>
+                  i === 1 ? (
+                    <span key={i} className="text-cyan-400">
+                      responsive
+                    </span>
+                  ) : (
+                    part
+                  )
+                )}
               </h3>
 
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-6 px-6 py-2 bg-gradient-to-r from-cyan-500
-                 to-blue-600 rounded-full text-white text-sm font-bold 
-                 shadow-[0_0_20px_rgba(34,211,238,0.3)]"
+                className="mt-6 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white text-sm font-bold shadow-[0_0_20px_rgba(34,211,238,0.3)]"
               >
-                Contact Me
+                {t.buttonText}
               </motion.a>
             </div>
 
@@ -100,10 +83,7 @@ const LevitatingAnimations = () => {
           </div>
 
           {/*Home Bar*/}
-          <div
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 
-          h-1 bg-white/40 rounded-full z-30"
-          ></div>
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/40 rounded-full z-30" />
         </motion.div>
       </div>
     </div>

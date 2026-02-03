@@ -18,15 +18,7 @@ const ContactCard = ({ title, value, icon, link }: ContactCardProps) => {
         transition-all
       "
     >
-      <div
-        className="
-          w-11 h-11 shrink-0
-          rounded-xl flex items-center justify-center text-xl
-          bg-cyan-400/10 text-cyan-300
-          group-hover:bg-cyan-400/20
-          transition-colors
-        "
-      >
+      <div className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center text-xl bg-cyan-400/10 text-cyan-300 group-hover:bg-cyan-400/20 transition-colors">
         {icon}
       </div>
 
