@@ -6,9 +6,9 @@ import { en } from "@/src/app/i18n/en";
 
 const Projects = () => {
   return (
-    <div id="projects">
+    <div id="projects" className="">
       <Tittle text="My" highlightedText="Projects" bgText="PROJECTS" />
-      <div className="w-full overflow-x-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mt-10">
+      <div className="w-full overflow-x-hidden overflow-y-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mt-10">
         {projects.map((project) => {
           const texts = en.projects[project.projectKey];
           return (

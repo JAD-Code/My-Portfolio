@@ -8,6 +8,7 @@ import { contacts } from "@/src/app/data/contacts";
 import { logoMap } from "../../icons/logoMap";
 import { useEmail } from "@/src/app/hooks/useEmail";
 import { en } from "@/src/app/i18n/en";
+import ScrollFadeUp from "../../ui/ScrollFadeUp";
 
 const Contact = () => {
   const { formRef, loading, successMessage, errorMessage, sendEmail } =
@@ -60,9 +61,11 @@ const Contact = () => {
         highlightedText={contactTexts.sectionTitle.highlightedText}
         bgText={contactTexts.sectionTitle.bgText}
       />
-      <p className="text-center text-white/70 my-4 max-w-2xl mx-auto">
-        {contactTexts.description}
-      </p>
+      <ScrollFadeUp>
+        <p className="text-center text-white/70 my-4 max-w-2xl mx-auto">
+          {contactTexts.description}
+        </p>
+      </ScrollFadeUp>
 
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

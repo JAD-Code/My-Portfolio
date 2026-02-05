@@ -3,10 +3,11 @@ import Tittle from "../../ui/Tittle";
 import { certificates } from "@/src/app/data/certificates";
 import { logoMap } from "@/src/app/components/icons";
 import { en } from "@/src/app/i18n/en";
+import ScrollFadeUp from "../../ui/ScrollFadeUp";
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="my-20">
+    <section id="certificates" className="overflow-hidden my-20">
       <Tittle text="My" highlightedText="Certificates" bgText="Certificates" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center lg:justify-center my-10">

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import ScrollFadeUp from "../../ui/ScrollFadeUp";
 interface CircleAnimationProps {
   icon: React.ReactNode;
   tittle: string;

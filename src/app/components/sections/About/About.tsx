@@ -4,6 +4,7 @@ import Tittle from "../../ui/Tittle";
 import LevitatingAnimations from "./LevitatingAnimations";
 import { Cpu, Terminal } from "lucide-react";
 import { en } from "@/src/app/i18n/en";
+import ScrollFadeUp from "../../ui/ScrollFadeUp";
 
 const About = () => {
   const t = en.about;
@@ -16,22 +17,26 @@ const About = () => {
 
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
         <div className="space-y-4">
-          <Card title={t.cardTitle} subtitle={t.cardSubtitle} />
-
+          <ScrollFadeUp>
+            <Card title={t.cardTitle} subtitle={t.cardSubtitle} />
+          </ScrollFadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <SmallCard
-              logo={<Cpu className="text-cyan-400" size={24} />}
-              tittle={t.smallCards[0].title}
-              subtitle={t.smallCards[0].subtitle}
-            />
-            <SmallCard
-              logo={<Terminal className="text-cyan-400" size={24} />}
-              tittle={t.smallCards[1].title}
-              subtitle={t.smallCards[1].subtitle}
-            />
+            <ScrollFadeUp>
+              <SmallCard
+                logo={<Cpu className="text-cyan-400" size={24} />}
+                tittle={t.smallCards[0].title}
+                subtitle={t.smallCards[0].subtitle}
+              />
+            </ScrollFadeUp>
+            <ScrollFadeUp>
+              <SmallCard
+                logo={<Terminal className="text-cyan-400" size={24} />}
+                tittle={t.smallCards[1].title}
+                subtitle={t.smallCards[1].subtitle}
+              />
+            </ScrollFadeUp>
           </div>
         </div>
-
         <div className="flex justify-center items-center h-full min-h-[500px] lg:-mt-13">
           <div className="scale-90 lg:scale-100 transform transition-transform">
             <LevitatingAnimations />

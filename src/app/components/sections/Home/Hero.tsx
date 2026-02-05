@@ -2,6 +2,7 @@ import TypingAnimation from "./TypingAnimation";
 import TechOrbit from "./TechOrbit";
 import Button from "../../ui/Button";
 import { en } from "@/src/app/i18n/en";
+import ScrollFadeUp from "../../ui/ScrollFadeUp";
 
 const Hero = () => {
   const t = en.hero;
@@ -14,6 +15,7 @@ const Hero = () => {
       px-4 pt-20 lg:pt-0 overflow-hidden"
     >
       {/* left side */}
+
       <div className="flex-1 text-center lg:text-left lg:ml-8 max-w-2xl z-10">
         <h1 className="text-5xl lg:text-6xl font-extrabold text-white">
           {t.greeting}{" "}
@@ -34,19 +36,21 @@ const Hero = () => {
         </p>
 
         {/* buttons */}
-        <div className="flex justify-center lg:justify-start gap-4 mt-8">
-          <Button
-            colorClass="blue-glass blue-glass-hover"
-            text={t.buttons.contact}
-            href="#contact"
-          />
-          <Button
-            href="https://drive.google.com/file/d/1uMjRqgdXlpMlblUOSkCV3j-aMZzkx9Ry/view?usp=drivesdk"
-            target="_blank"
-            colorClass="liquid-glass liquid-glass-hover"
-            text={t.buttons.resume}
-          />
-        </div>
+        <ScrollFadeUp>
+          <div className="flex justify-center lg:justify-start gap-4 mt-8">
+            <Button
+              colorClass="blue-glass blue-glass-hover"
+              text={t.buttons.contact}
+              href="#contact"
+            />
+            <Button
+              href="https://drive.google.com/file/d/1uMjRqgdXlpMlblUOSkCV3j-aMZzkx9Ry/view?usp=drivesdk"
+              target="_blank"
+              colorClass="liquid-glass liquid-glass-hover"
+              text={t.buttons.resume}
+            />
+          </div>
+        </ScrollFadeUp>
       </div>
 
       {/* right side */}
