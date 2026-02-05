@@ -4,6 +4,7 @@ import Skills from "./components/sections/Skills/Skills";
 import Projects from "./components/sections/Projects/Projects";
 import Certificates from "./components/sections/Certificates/Certificates";
 import Contact from "./components/sections/Contact/Contact";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
       <Projects />
       <Certificates />
       <Contact />
+      <SpeedInsights />
     </>
   );
 };
