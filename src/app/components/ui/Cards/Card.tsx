@@ -5,6 +5,7 @@ import Drawer from "../Drawer";
 import GitHubLogo from "@/src/app/components/icons/GitHubLogo";
 import { ExternalLinkIcon } from "lucide-react";
 import ScrollFadeUp from "../ScrollFadeUp";
+import { div } from "framer-motion/client";
 
 interface CardProps {
   img: StaticImageData | string;
@@ -68,7 +69,7 @@ const Card: React.FC<CardProps> = ({
             <video
               ref={cardVideoRef}
               src={videoSrc}
-              className="w-full h-full object-cover"
+              className="relative w-full h-full object-cover"
               autoPlay
               muted
               loop
@@ -85,10 +86,35 @@ const Card: React.FC<CardProps> = ({
             <Image
               src={img}
               alt={title}
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="relative object-cover transition-transform duration-500 group-hover:scale-110"
               fill
               loading="lazy"
             />
+          )}
+          {!certificate && (
+            <div
+              className={`absolute flex top-0 right-0 bg-neutral-800 
+              rounded-bl-xl border-l-2 border-b-2 border-l-neutral-800
+               border-b-neutral-800 hover:cursor-pointer shadow-xs
+               shadow-neutral-700
+               ${
+                 isPublic
+                   ? "hover:text-green-300 hover:border-green-500/50"
+                   : "hover:text-red-300 hover:border-red-500/50"
+               }`}
+            >
+              {isPublic ? (
+                <div className="flex justify-between m-1 p-1 text-sm">
+                  <GitHubLogo className="w-4 h-4 mx-2 mt-[2px]" />
+                  <a href={repoLink}>Public Repo</a>
+                </div>
+              ) : (
+                <div className="flex justify-between m-1 p-1 text-sm">
+                  <GitHubLogo className="w-4 h-4 mx-2 mt-[2px]" />
+                  <p>Privet Repo</p>
+                </div>
+              )}
+            </div>
           )}
         </div>
 
