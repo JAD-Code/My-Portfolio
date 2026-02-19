@@ -21,6 +21,12 @@ export const contacts: ContactInfo[] = [
     icon: "github",
   },
   {
+    title: "LinkedIn",
+    value: "Jad Yousef (JADCode)",
+    link: "https://www.linkedin.com/in/jad-yousef-2619963b0/",
+    icon: "linkedin",
+  },
+  {
     title: "X (formally Twitter)",
     value: "@JADCode",
     link: "https://x.com/JadCode",
