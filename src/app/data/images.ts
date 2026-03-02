@@ -1,5 +1,6 @@
 import UniWayPic from "@/public/images/UniWayPic.png";
 import akhlaqGarmentPic from "@/public/images/akhlaqGarmentPic.png";
+import dashboardPic from "@/public/images/dashboardPic.png";
 
 import ReactBasicsCERTIFICATE from "@/public/images/ReactBasicsCERTIFICATE.jpeg";
 import VersionControlCERTIFICATE from "@/public/images/VersionControlCERTIFICATE.jpeg";
@@ -14,6 +15,7 @@ export {
   // Projects
   UniWayPic,
   akhlaqGarmentPic,
+  dashboardPic,
   // Certificates
   ReactBasicsCERTIFICATE,
   VersionControlCERTIFICATE,

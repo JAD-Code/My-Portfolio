@@ -20,3 +20,4 @@ export { default as LinkedInLogo } from "./LinkedInLogo";
 export { default as TelegramLogo } from "./TelegramLogo";
 export { default as WhatsAppLogo } from "./WhatsAppLogo";
 export { default as XLogo } from "./XLogo";
+export { default as ShadcnLogo } from "./ShadcnLogo";

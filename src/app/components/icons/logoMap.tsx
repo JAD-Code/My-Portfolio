@@ -20,6 +20,7 @@ import TelegramLogo from "./TelegramLogo";
 import TsLogo from "./TsLogo";
 import WhatsAppLogo from "./WhatsAppLogo";
 import XLogo from "./XLogo";
+import ShadcnLogo from "./ShadcnLogo";
 
 export type LogoKey =
   | "react"
@@ -41,7 +42,8 @@ export type LogoKey =
   | "linkedin"
   | "telegram"
   | "whatsapp"
-  | "x";
+  | "x"
+  | "shadcn";
 
 export const logoMap: Record<
   LogoKey,
@@ -67,4 +69,5 @@ export const logoMap: Record<
   telegram: TelegramLogo,
   whatsapp: WhatsAppLogo,
   x: XLogo,
+  shadcn: ShadcnLogo,
 };

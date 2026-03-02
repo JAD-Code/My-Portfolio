@@ -111,7 +111,7 @@ const Card: React.FC<CardProps> = ({
               ) : (
                 <div className="flex justify-between m-1 p-1 text-sm">
                   <GitHubLogo className="w-4 h-4 mx-2 mt-[2px]" />
-                  <p>Privet Repo</p>
+                  <p>Private Repo</p>
                 </div>
               )}
             </div>

@@ -43,6 +43,13 @@ export const en = {
       longSubTitle:
         "I worked as a freelancer for Akhlaq Garment, an Ethiopian clothing manufacturing company, contributing to their projects and supporting their digital needs.",
     },
+    dashboard: {
+      title: "Dashboard training project",
+      subTitle:
+        "Dashboard UI – A front-end training project built with Next.js & shadcn/ui",
+      longSubTitle:
+        "A multi-page dashboard interface built for practice, featuring a fully functional dark/light theme toggle, clean layout structure, and reusable components. Developed using Next.js, TypeScript, Tailwind CSS, and shadcn/ui publicly available on GitHub.",
+    },
   },
   certificates: {
     reactBasics: {
